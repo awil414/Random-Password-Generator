@@ -1,0 +1,32 @@
+* {
+    margin:0;
+    padding:0;
+    user-select:none;
+    box-sizing:border-box;
+}
+/* style */
+
+body {
+    background-color:aliceblue;
+    min-height: 700px;
+}
+/* Style Header */
+.header {
+    background-color: white;
+    color: black;
+    border: 3px solid slateblue;
+    padding: 20px;
+    text-align:center;
+}
+/* stlye box */
+.box {
+    background-color: white;
+    padding: 20px;
+}
+.box h2 {
+    margin-top: 10px;
+    text-align:center;
+    font-size: 15px;
+    color: black;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
