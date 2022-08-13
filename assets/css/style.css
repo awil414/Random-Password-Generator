@@ -31,3 +31,33 @@ body {
     color: black;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
+/*  */
+input {
+    margin: 100px 300px;
+    padding: 50px;
+    user-select:none;
+    height: 25px;
+    width: 400px;
+    border-radius: 3px;
+    border: 2px solid slateblue;
+    outline: none;
+    font-size: 18px;
+    text-align: center;
+}
+
+input::placeholder {
+    font-size: 14px;
+}
+
+#btn {
+    margin-bottom: 150px;
+    margin-left: 410px;
+}
+
+#generate {
+    background-color: red;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
