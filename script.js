@@ -18,9 +18,9 @@ var choices;
 // I have no idea what this is actually doing -- ask ?? why is this just 'function'?
 // Can i just put a variable retVal in here like this? why?
 // Why do I put = retVal at the end of this? or do I?
-var grab = document.getElementById("generate");
+var gen = document.getElementById("generate");
 
-grab.addEventListener("click", function () {
+gen.addEventListener("click", function () {
     retVal = generatePassword();
     document.getElementById("password").placeholder = retVal;
 });
