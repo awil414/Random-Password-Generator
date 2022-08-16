@@ -12,12 +12,17 @@ number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 special = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+"];
 
 // Variable for User's choices 
-var userChoices;
+var choices;
 
-// Variable to create event object "generate" + the handler to the "get" node
+// Variable to create event object "generate" + the handler to the "get" node 
+// I have no idea what this is actually doing -- ask ?? why is this just 'function'?
+// Can i just put a variable retVal in here like this? why?
+// Why do I put = retVal at the end of this? or do I?
 var get = document.querySelector("generate");
+
 get.addEventListener("click", function () {
-    document.getElementById("password").placeholder;
+    retVal = generatePassword();
+    document.getElementById("password").placeholder = retVal;
 });
 
 // Function to generate password //
@@ -39,54 +44,60 @@ function generatePassword() {
 
     // If user enters all no options 
     if (!confirmLow && !confirmUp && !confirmNum && !confirmSpec) {
-        userChoices = alert("Please choose at least one criteria!");
+        choices = alert("Please choose at least one criteria!");
     }
     // Else if user enters all options 
     else if (confirmLow && confirmUp && confirmNum && confirmSpec) {
-        userChoices = lower.concat(upper, number, special);
+        choices = lower.concat(upper, number, special);
     }
     // Else if user enters 3 options 
     else if (confirmLow && confirmUp && confirmNum) {
-        userChoices = lower.concat(upper, number);
+        choices = lower.concat(upper, number);
     }
     else if (confirmLow && confirmUp && confirmSpec) {
-        userChoices = lower.concat(upper, special);
+        choices = lower.concat(upper, special);
     }
     else if (confirmLow && confirmNum && confirmSpec) {
-        userChoices = lower.concat(number, special);
+        choices = lower.concat(number, special);
     }
     else if (confirmNum && confirmUp && confirmSpec) {
-        userChoices = number.concat(upper, special);
+        choices = number.concat(upper, special);
     }
     // Else if user enters 2 options
     else if (confirmLow && confirmUp) {
-        userChoices = lower.concat(upper);
+        choices = lower.concat(upper);
     }
     else if (confirmLow && confirmNum) {
-        userChoices = lower.concat(number);
+        choices = lower.concat(number);
     }
     else if (confirmLow && confirmSpec) {
-        userChoices = lower.concat(special);
+        choices = lower.concat(special);
     }
     else if (confirmUp && confirmNum) {
-        userChoices = upper.concat(number); 
+        choices = upper.concat(number); 
     }
     else if (confirmUp && confirmSpec) {
-        userChoices = upper.concat(special);
+        choices = upper.concat(special);
     }
     else if (confirmNum && confirmSpec) {
-        userChoices = number.concat(special);
+        choices = number.concat(special);
     }
     // Else if user enters 1 option
     else if (confirmLow) {
-        userChoices = lower;
+        choices = lower;
     }
     else if (confirmUp) {
-        userChoices = upper;
+        choices = upper;
     }
     else if (confirmNum) {
-        userChoices = number;
+        choices = number;
     }
     else if (confirmSpec) {
-        userChoices = special;
+        choices = special;
+    };
+
+    //  Create random selection of user choices variables
+    for  (var i = 0; i < select; i++) {
+        var userChoices = choices[Math.floor(Math.random() * choices.length)];
     }
+}
