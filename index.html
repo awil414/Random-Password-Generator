@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random-Password-Generator</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <script src="script.js"></script>
 </head>
+
 <body>
     <header class="header">
         <!-- Header -->
         <h1>Random Password Generator</h1>
     </header>
 
-    <div class="box"> 
+    <div class="box">
         <h2> Click the button to generate a random password. <h2>
+                <textarea type="text" name="" placeholder="Your Unique Password" id="password" readonly>
+                </textarea>
+                <div id="btn">
+                    <button id="generate">Generate Password</button>
+                </div>
     </div>
-    <input type="text" name="" placeholder="Your Unique Password" id="password" readonly>
-
-    <div id="btn">
-        <button id="generate">Generate Password</button>
-    </div>
-    
-
+    <script src="script.js"></script>
 </body>
+
 </html>

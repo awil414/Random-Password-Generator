@@ -11,18 +11,15 @@ upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 special = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+"];
 
-// Variable for User's choices 
-var choices;
+// Variable for User's choices with placeholder for choices
+var choices = [];
 
-// Variable to create event object "generate" + the handler to the "get" node 
-// I have no idea what this is actually doing -- ask ?? why is this just 'function'?
-// Can i just put a variable retVal in here like this? why?
-// Why do I put = retVal at the end of this? or do I?
+// Variable to create event object "generate" + the handler to the "gen" node 
 var gen = document.getElementById("generate");
-
+// Add EventListener to tell DOM what to do when gen is selected/clicked
 gen.addEventListener("click", function() {
     retVal = generatePassword();
-    document.getElementById("password").placeholder = retVal;
+    document.getElementById("password").textContent = retVal;
 });
 
 // Function to generate password //
@@ -46,61 +43,86 @@ function generatePassword() {
     if (!confirmLow && !confirmUp && !confirmNum && !confirmSpec) {
         choices = alert("Please choose at least one criteria!");
     }
-    // Else if user enters all ok options 
-    else if (confirmLow && confirmUp && confirmNum && confirmSpec) {
-        choices = lower.concat(upper, number, special);
-    }
-    // Else if user enters 3 ok options 
-    else if (confirmLow && confirmUp && confirmNum) {
-        choices = lower.concat(upper, number);
-    }
-    else if (confirmLow && confirmUp && confirmSpec) {
-        choices = lower.concat(upper, special);
-    }
-    else if (confirmLow && confirmNum && confirmSpec) {
-        choices = lower.concat(number, special);
-    }
-    else if (confirmNum && confirmUp && confirmSpec) {
-        choices = number.concat(upper, special);
-    }
-    // Else if user enters 2 ok options
-    else if (confirmLow && confirmUp) {
-        choices = lower.concat(upper);
-    }
-    else if (confirmLow && confirmNum) {
-        choices = lower.concat(number);
-    }
-    else if (confirmLow && confirmSpec) {
-        choices = lower.concat(special);
-    }
-    else if (confirmUp && confirmNum) {
-        choices = upper.concat(number); 
-    }
-    else if (confirmUp && confirmSpec) {
-        choices = upper.concat(special);
-    }
-    else if (confirmNum && confirmSpec) {
-        choices = number.concat(special);
-    }
-    // Else if user enters 1 ok option
-    else if (confirmLow) {
-        choices = lower;
-    }
-    else if (confirmUp) {
-        choices = upper;
-    }
-    else if (confirmNum) {
-        choices = number;
-    }
-    else if (confirmSpec) {
-        choices = special;
+    // If user enters any other combinations of options
+    else {
+        if (confirmLow) {
+            choices = choices.concat(lower);
+        }
+        if (confirmUp) {
+            choices = choices.concat(upper);
+        }
+        if (confirmNum) {
+            choices = choices.concat(number);
+        }
+        if (confirmSpec) {
+            choices = choices.concat(special);
+        }
     };
 
-// How do i get users option for amount of length in my array?????
-
+// Create variable to hold the place for my users selected number length criteria in array
+    var basket = ""
     //  Create random selection of user choices variables
-    // Is this for loop even close to being right??
     for  (var i = 0; i < selection; i++) {
         var userChoices = choices[Math.floor(Math.random() * choices.length)];
+        basket += userChoices;
     }
+
+    return basket
 }
+
+// **THESE NOTES ARE FROM EARLIER, CLUMSIER CODE that I then cleaned up with help from tutor:
+// and are only in here for grader purposes -- will delete after grading**
+
+   // // If user enters all cancel options 
+    // if (!confirmLow && !confirmUp && !confirmNum && !confirmSpec) {
+    //     choices = alert("Please choose at least one criteria!");
+    // }
+    // // Else if user enters all ok options 
+    // else if (confirmLow && confirmUp && confirmNum && confirmSpec) {
+    //     choices = lower.concat(upper, number, special);
+    // }
+    // // Else if user enters 3 ok options 
+    // else if (confirmLow && confirmUp && confirmNum) {
+    //     choices = lower.concat(upper, number);
+    // }
+    // else if (confirmLow && confirmUp && confirmSpec) {
+    //     choices = lower.concat(upper, special);
+    // }
+    // else if (confirmLow && confirmNum && confirmSpec) {
+    //     choices = lower.concat(number, special);
+    // }
+    // else if (confirmNum && confirmUp && confirmSpec) {
+    //     choices = number.concat(upper, special);
+    // }
+    // // Else if user enters 2 ok options
+    // else if (confirmLow && confirmUp) {
+    //     choices = lower.concat(upper);
+    // }
+    // else if (confirmLow && confirmNum) {
+    //     choices = lower.concat(number);
+    // }
+    // else if (confirmLow && confirmSpec) {
+    //     choices = lower.concat(special);
+    // }
+    // else if (confirmUp && confirmNum) {
+    //     choices = upper.concat(number); 
+    // }
+    // else if (confirmUp && confirmSpec) {
+    //     choices = upper.concat(special);
+    // }
+    // else if (confirmNum && confirmSpec) {
+    //     choices = number.concat(special);
+    // }
+    // // Else if user enters 1 ok option
+    // else if (confirmLow) {
+    //     choices = lower;
+    // }
+    // else if (confirmUp) {
+    //     choices = upper;
+    // }
+    // else if (confirmNum) {
+    //     choices = number;
+    // }
+    // else if (confirmSpec) {
+    //     choices = special;
+    // };

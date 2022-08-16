@@ -32,11 +32,9 @@ body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 /*  */
-input {
-    margin: 100px 435px;
-    padding: 50px;
+textarea {
     user-select:none;
-    height: 25px;
+    height: 150px;
     width: 400px;
     border-radius: 3px;
     border: 2px solid slateblue;
@@ -45,13 +43,12 @@ input {
     text-align: center;
 }
 
-input::placeholder {
+textarea::placeholder {
     font-size: 20px;
 }
 
 #btn {
-    margin-bottom: 150px;
-    margin-left: 545px;
+    margin-top: 20px;
 }
 
 #generate {
@@ -60,15 +57,4 @@ input::placeholder {
     padding: 10px 30px;
     border-radius: 12px;
     margin-bottom: 10px;
-}
-
-/* Make page responsive to changes in screen size */
-/* HELP */
-@media (max-width: 600px) {
-    #btn {
-        margin-left: 350px;
-    }
-    input {
-        margin: 100px 300px;
-    }
 }
