@@ -18,9 +18,9 @@ var choices;
 // I have no idea what this is actually doing -- ask ?? why is this just 'function'?
 // Can i just put a variable retVal in here like this? why?
 // Why do I put = retVal at the end of this? or do I?
-var get = document.querySelector("generate");
+var grab = document.getElementById("generate");
 
-get.addEventListener("click", function () {
+grab.addEventListener("click", function () {
     retVal = generatePassword();
     document.getElementById("password").placeholder = retVal;
 });
@@ -28,12 +28,12 @@ get.addEventListener("click", function () {
 // Function to generate password //
 function generatePassword() {
     // Ask for user input //
-    select = prompt("Enter a password length between 8 and 128.");
+    selection = prompt("Enter a password length between 8 and 128.");
     // First if statement //
-    if (!select) {
+    if (!selection) {
         alert("Value needed.");
-    } else if (select < 8 || select > 128) {
-        select = prompt("Please choose a password length between 8 and 128.");
+    } else if (selection < 8 || selection > 128) {
+        selection = prompt("Please choose a password length between 8 and 128.");
 
     } else {
         confirmLow = confirm("Would you like to use Lowercase letters?");
@@ -96,8 +96,11 @@ function generatePassword() {
         choices = special;
     };
 
+// How do i get users option for amount of length in my array?????
+
     //  Create random selection of user choices variables
-    for  (var i = 0; i < select; i++) {
+    // Is this for loop even close to being right??
+    for  (var i = 0; i < selection; i++) {
         var userChoices = choices[Math.floor(Math.random() * choices.length)];
     }
 }

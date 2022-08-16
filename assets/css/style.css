@@ -61,3 +61,14 @@ input::placeholder {
     border-radius: 12px;
     margin-bottom: 10px;
 }
+
+/* Make page responsive to changes in screen size */
+/* HELP */
+@media (max-width: 600px) {
+    #btn {
+        margin-left: 350px;
+    }
+    input {
+        margin: 100px 300px;
+    }
+}
