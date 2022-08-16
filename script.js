@@ -3,7 +3,7 @@ var confirmNum;
 var confirmSpec;
 var confirmUp;
 var confirmLow;
-var select;
+var selection;
 
 // Password variables 
 lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q","r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -20,7 +20,7 @@ var choices;
 // Why do I put = retVal at the end of this? or do I?
 var gen = document.getElementById("generate");
 
-gen.addEventListener("click", function () {
+gen.addEventListener("click", function() {
     retVal = generatePassword();
     document.getElementById("password").placeholder = retVal;
 });
@@ -31,7 +31,7 @@ function generatePassword() {
     selection = prompt("Enter a password length between 8 and 128.");
     // First if statement //
     if (!selection) {
-        alert("Value needed.");
+        alert("Value needed!");
     } else if (selection < 8 || selection > 128) {
         selection = prompt("Please choose a password length between 8 and 128.");
 
@@ -42,15 +42,15 @@ function generatePassword() {
         confirmSpec = confirm("Would you like to use Special characters?");
     };
 
-    // If user enters all no options 
+    // If user enters all cancel options 
     if (!confirmLow && !confirmUp && !confirmNum && !confirmSpec) {
         choices = alert("Please choose at least one criteria!");
     }
-    // Else if user enters all options 
+    // Else if user enters all ok options 
     else if (confirmLow && confirmUp && confirmNum && confirmSpec) {
         choices = lower.concat(upper, number, special);
     }
-    // Else if user enters 3 options 
+    // Else if user enters 3 ok options 
     else if (confirmLow && confirmUp && confirmNum) {
         choices = lower.concat(upper, number);
     }
@@ -63,7 +63,7 @@ function generatePassword() {
     else if (confirmNum && confirmUp && confirmSpec) {
         choices = number.concat(upper, special);
     }
-    // Else if user enters 2 options
+    // Else if user enters 2 ok options
     else if (confirmLow && confirmUp) {
         choices = lower.concat(upper);
     }
@@ -82,7 +82,7 @@ function generatePassword() {
     else if (confirmNum && confirmSpec) {
         choices = number.concat(special);
     }
-    // Else if user enters 1 option
+    // Else if user enters 1 ok option
     else if (confirmLow) {
         choices = lower;
     }
