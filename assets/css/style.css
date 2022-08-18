@@ -31,7 +31,7 @@ body {
     color: black;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
-/*  */
+/* area for password to return */
 textarea {
     user-select:none;
     height: 150px;
@@ -42,15 +42,15 @@ textarea {
     font-size: 18px;
     text-align: center;
 }
-
+/* font style for placeholder for password */
 textarea::placeholder {
     font-size: 20px;
 }
-
+/* placement for button */
 #btn {
     margin-top: 20px;
 }
-
+/* style for generate button */
 #generate {
     background-color: red;
     color: white;
